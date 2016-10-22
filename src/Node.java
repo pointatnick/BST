@@ -25,7 +25,7 @@ public class Node {
         }
     }
 
-    public void delete() {
+    public void delete(int val) {
 
     }
 }
