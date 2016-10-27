@@ -23,7 +23,7 @@ public class Node {
         right.insert(n);
       }
     } else {
-      System.out.println(n + " is already in the tree.");
+      System.out.println("Error: " + n + " is already in the tree.");
     }
   }
 
@@ -31,18 +31,20 @@ public class Node {
 
   }
 
-  public void search(int n) throws NullPointerException {
-    if (left.key == n || right.key == n) {
-      System.out.println("found " + n);
-    } else {
+  public boolean search(int n) throws NullPointerException {
+    boolean isInTree = false;
+    if (n == key) {
+      isInTree = true;
+    } else if (n < key) {
       if (left != null) {
-        left.search(n);
+        isInTree = left.search(n);
       }
+    } else if (n > key) {
       if (right != null) {
-        right.search(n);
+        isInTree = right.search(n);
       }
     }
-    System.out.println(n + " not found");
+    return isInTree;
   }
 
   public void traverse() {
